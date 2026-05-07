@@ -1,0 +1,112 @@
+/* tweaks.css — overrides driven by data-accent / data-intensity / data-photo */
+
+/* Photo filter vars (consumed below) */
+:root {
+  --ph-grayscale: 0.5;
+  --ph-contrast: 1.05;
+  --ph-brightness: 0.85;
+  --ph-scrim-opacity: 0.55;
+  --int-display-scale: 1;
+  --int-display-weight: 900;
+  --int-display-tracking: -0.02em;
+  --int-block-padding: 120px;
+  --int-grain-opacity: 0.05;
+}
+
+/* ---------- ACCENT: re-bind gold tokens per palette ---------- */
+html[data-accent="teal"] {
+  --gold-500: #2A9C95;
+  --gold-400: #3FB8B0;
+  --gold-300: #5FCFC7;
+  --gold-200: #86E1D9;
+  --shadow-gold: 0 18px 40px -18px rgba(63,184,176,0.45);
+}
+html[data-accent="bone"] {
+  --gold-500: #C8C0AC;
+  --gold-400: #E8E2D2;
+  --gold-300: #F1ECDF;
+  --gold-200: #F8F5EC;
+  --shadow-gold: 0 18px 40px -18px rgba(232,226,210,0.30);
+}
+
+/* On bone, dark-on-bone-button needs darker text */
+html[data-accent="bone"] .btn--gold,
+html[data-accent="bone"] .nav-cta {
+  color: #1a1a1a;
+}
+html[data-accent="bone"] .day__pin,
+html[data-accent="bone"] .tier__badge,
+html[data-accent="bone"] .tier--featured .tier__check {
+  color: #1a1a1a;
+}
+
+/* ---------- PHOTO TREATMENT ---------- */
+.hero__bg,
+.s14__photo {
+  filter: grayscale(var(--ph-grayscale)) contrast(var(--ph-contrast)) brightness(calc(var(--ph-brightness) * 0.82)) !important;
+}
+.s1__photo img,
+.s5__photo img,
+.s9__photo img {
+  filter: grayscale(var(--ph-grayscale)) contrast(var(--ph-contrast)) brightness(var(--ph-brightness)) !important;
+}
+/* Section 5 (Freedom / Jessica) — override photo treatment for sharpening */
+html .s5__photo img {
+  filter: contrast(1.05) saturate(1.05) brightness(1) !important;
+}
+.hero__scrim {
+  opacity: var(--ph-scrim-opacity);
+}
+
+/* ---------- INTENSITY: reshape display type & block rhythm ---------- */
+html[data-intensity] .hero__h1,
+html[data-intensity] .block__h2,
+html[data-intensity] .s14__h {
+  letter-spacing: var(--int-display-tracking) !important;
+}
+
+html[data-intensity="reverent"] .hero__h1,
+html[data-intensity="reverent"] .block__h2 {
+  font-weight: 300 !important;
+}
+html[data-intensity="reverent"] .hero__h1 .accent,
+html[data-intensity="reverent"] .block__h2 .accent,
+html[data-intensity="reverent"] .s14__h-accent {
+  font-weight: 700 !important;
+}
+html[data-intensity="reverent"] .hero__brushword {
+  font-weight: 400 !important;
+  font-style: italic;
+}
+
+html[data-intensity="rally"] .hero__h1,
+html[data-intensity="rally"] .block__h2,
+html[data-intensity="rally"] .s14__h {
+  font-weight: 900 !important;
+  text-transform: uppercase;
+}
+html[data-intensity="rally"] .hero__h1 .light,
+html[data-intensity="rally"] .block__h2 .light {
+  font-weight: 700 !important;
+  font-style: italic;
+}
+
+/* Section padding pulses with intensity */
+html[data-intensity] .block {
+  padding-top: var(--int-block-padding) !important;
+  padding-bottom: var(--int-block-padding) !important;
+}
+
+/* Subtle grain overlay on hero only when intensity asks for it */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.85  0 0 0 0 0.78  0 0 0 0 0.55  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: var(--int-grain-opacity);
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+.hero { isolation: isolate; }
+.hero__inner { position: relative; z-index: 2; }

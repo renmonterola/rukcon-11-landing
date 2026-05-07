@@ -1,0 +1,296 @@
+/* =========================================================
+   RUKCON11 — Colors & Typography Foundations
+   Lead with GOLD. Let TEAL shine through.
+   Masculine-first, premium with grit.
+   ========================================================= */
+
+/* -------- Webfonts -------- */
+/* Montserrat — brand face. Local TTFs in /fonts. Used for both display + body. */
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Thin.ttf') format('truetype');           font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ThinItalic.ttf') format('truetype');     font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ExtraLight.ttf') format('truetype');     font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ExtraLightItalic.ttf') format('truetype');font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Light.ttf') format('truetype');          font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-LightItalic.ttf') format('truetype');    font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Regular.ttf') format('truetype');        font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Italic.ttf') format('truetype');         font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Medium.ttf') format('truetype');         font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-MediumItalic.ttf') format('truetype');   font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-SemiBold.ttf') format('truetype');       font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-SemiBoldItalic.ttf') format('truetype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Bold.ttf') format('truetype');           font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-BoldItalic.ttf') format('truetype');     font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ExtraBold.ttf') format('truetype');      font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-ExtraBoldItalic.ttf') format('truetype');font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Black.ttf') format('truetype');          font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-BlackItalic.ttf') format('truetype');    font-weight: 900; font-style: italic; font-display: swap; }
+
+/* Caveat Brush — supporting script fallback (smoother, brush-stroke feel matching the logo's ALL IN mark).
+   Permanent Marker remains as a marker-style fallback. The logo's ALL IN itself is custom hand-lettering — use the logo art. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* ===========================
+     CORE BRAND PALETTE
+     =========================== */
+
+  /* Gold — primary. Warm, slightly aged, never neon. */
+  --gold-50:  #FBF4E0;
+  --gold-100: #F1E1A8;
+  --gold-200: #E5CB76;
+  --gold-300: #D4B14A;
+  --gold-400: #C99B30;          /* Brand gold (logo disc) */
+  --gold-500: #B8881F;          /* Press / hover-down */
+  --gold-600: #8E6814;
+  --gold-700: #5E440B;
+
+  /* Teal — secondary accent. Sun-bleached, never electric. */
+  --teal-50:  #E2F3F4;
+  --teal-100: #B0DEE0;
+  --teal-200: #7BC6CB;
+  --teal-300: #46AEB4;
+  --teal-400: #1FA0A8;          /* Brand teal (brushstroke) */
+  --teal-500: #168891;
+  --teal-600: #0F6970;
+  --teal-700: #094249;
+
+  /* Neutrals — gritty, slightly warm black, off-white paper. */
+  --ink-950: #0A0A0B;           /* True black logos */
+  --ink-900: #141414;           /* Default dark surface */
+  --ink-800: #1F1F20;
+  --ink-700: #2D2D2F;
+  --ink-600: #3D3D40;
+  --ink-500: #5A5A5E;
+  --ink-400: #7A7A80;
+  --ink-300: #A3A3A8;
+  --ink-200: #C9C9CC;
+  --ink-100: #E8E8E9;
+  --ink-50:  #F5F4F0;           /* Warm paper */
+  --ink-0:   #FFFFFF;
+
+  /* Semantic accents (sparingly) */
+  --success: #2F8F5C;
+  --danger:  #B5392B;
+  --warning: var(--gold-300);
+
+  /* ===========================
+     SEMANTIC TOKENS — LIGHT
+     =========================== */
+  --bg:           var(--ink-50);
+  --bg-elevated: var(--ink-0);
+  --bg-inset:    #EFEDE6;
+  --bg-invert:   var(--ink-900);
+
+  --fg:    var(--ink-900);
+  --fg-1:  var(--ink-700);
+  --fg-2:  var(--ink-500);
+  --fg-3:  var(--ink-400);
+  --fg-on-gold: var(--ink-950);
+  --fg-on-teal: var(--ink-0);
+  --fg-on-dark: var(--ink-50);
+
+  --accent:        var(--gold-400);
+  --accent-hover:  var(--gold-300);
+  --accent-press:  var(--gold-500);
+  --accent-2:      var(--teal-400);
+  --accent-2-hover:var(--teal-300);
+
+  --border:       rgba(20,20,20,0.12);
+  --border-strong:rgba(20,20,20,0.24);
+  --border-gold:  var(--gold-400);
+
+  /* ===========================
+     TYPE FAMILIES
+     =========================== */
+  --font-display: 'Montserrat', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-script:  'Caveat Brush', 'Permanent Marker', 'Brush Script MT', cursive;
+  --font-body:    'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* Weights */
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semibold:600;
+  --w-bold:    700;
+
+  /* ===========================
+     TYPE SCALE — MAJOR THIRD (1.25)
+     =========================== */
+  --fs-display: clamp(56px, 8vw, 112px);
+  --fs-h1: 64px;
+  --fs-h2: 48px;
+  --fs-h3: 32px;
+  --fs-h4: 24px;
+  --fs-h5: 18px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-tiny: 12px;
+
+  --lh-tight: 0.95;
+  --lh-snug: 1.15;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-eyebrow: 0.18em;
+
+  /* ===========================
+     SPACING & RADII
+     =========================== */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  --r-none: 0;
+  --r-sm: 2px;             /* Cards keep tight, almost-square corners */
+  --r-md: 4px;
+  --r-lg: 8px;
+  --r-pill: 999px;
+
+  /* Elevation — restrained, never floaty/SaaS */
+  --shadow-sm: 0 1px 2px rgba(10,10,10,0.10);
+  --shadow-md: 0 4px 14px rgba(10,10,10,0.14);
+  --shadow-lg: 0 18px 40px -12px rgba(10,10,10,0.30);
+  --shadow-gold: 0 8px 24px -6px rgba(201,155,48,0.35);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in:  cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-grit: cubic-bezier(0.6, -0.05, 0.2, 1.05);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+}
+
+/* -------- DARK THEME -------- */
+[data-theme="dark"], .theme-dark {
+  --bg:          var(--ink-900);
+  --bg-elevated: var(--ink-800);
+  --bg-inset:    var(--ink-950);
+  --bg-invert:   var(--ink-50);
+
+  --fg:    var(--ink-50);
+  --fg-1:  var(--ink-200);
+  --fg-2:  var(--ink-300);
+  --fg-3:  var(--ink-400);
+
+  --border:        rgba(255,255,255,0.10);
+  --border-strong: rgba(255,255,255,0.22);
+}
+
+/* =========================================================
+   SEMANTIC TYPE — apply to elements directly
+   ========================================================= */
+
+.font-display { font-family: var(--font-display); }
+.font-script  { font-family: var(--font-script); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 900;                       /* Montserrat Black for billboard headlines */
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 800;                       /* ExtraBold */
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: var(--fg);
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;                       /* Bold */
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+h4, .h4 {
+  font-family: var(--font-body);
+  font-weight: var(--w-semibold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+
+h5, .h5, .eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--w-semibold);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+}
+
+.script {
+  font-family: var(--font-script);
+  font-weight: var(--w-regular);
+  letter-spacing: 0.01em;
+}
+
+small, .small {
+  font-size: var(--fs-small);
+  color: var(--fg-2);
+}
+
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-inset);
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+}
+
+/* =========================================================
+   UTILITY: brand brushstroke underline (gold or teal)
+   ========================================================= */
+.brush-mark {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.15em;
+}
+.brush-mark::before {
+  content: "";
+  position: absolute;
+  inset: 14% -4% 6% -4%;
+  background: var(--accent-2);
+  z-index: -1;
+  clip-path: polygon(2% 30%, 8% 12%, 22% 8%, 40% 18%, 58% 6%, 76% 14%, 92% 22%, 98% 60%, 90% 82%, 76% 92%, 58% 78%, 38% 88%, 18% 80%, 6% 70%);
+}
+.brush-mark--gold::before { background: var(--accent); }
